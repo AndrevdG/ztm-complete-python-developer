@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "section_2"
+		},
+		{
+			"path": "section_3"
+		},
+		{
+			"path": "section_4"
+		}
+	],
+	"settings": {
+		"github.copilot.enable": {
+			"*": false
+		}
+	}
+}
