@@ -14,7 +14,7 @@ if __name__ == "__main__":
         try:
             low = int(argv[1])
             high = int(argv[2])
-        except TypeError:
+        except ValueError:
             print('please provide only 2 integer numbers to the program')
             exit(1)
         secret_number = randint(low, high)
@@ -22,7 +22,7 @@ if __name__ == "__main__":
         while True:
             try:
                 user_choice = int(input(f'Please pick a number between {low} and {high}: '))
-            except TypeError:
+            except ValueError:
                 print('only provide an integer number please')
             except KeyboardInterrupt:
                 print(f'\nyou did not guess it!, the number was {secret_number}')
