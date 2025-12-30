@@ -12,7 +12,7 @@ from sys import argv
 
 
 def get_pw_leaked_count(pw_list, pw_hash):
-    hashes = (lines.split(':') for lines in pw_list.splitlines())
+    hashes = (lines.split(":") for lines in pw_list.splitlines())
     for hash, count in hashes:
         if pw_hash.upper() == hash.upper():
             return int(count)
@@ -32,11 +32,16 @@ def check_password(password):
     return get_pw_leaked_count(pw_hashes_in_db, hashed_pw[5:])
 
 
+def main(args):
+    for password in args:
+        times_in_db = check_password(password)
+        if times_in_db > 0:
+            print(
+                f"You are pwnd, password {password} found {times_in_db} times in database"
+            )
+        else:
+            print(f"Lucky! password {password} not pwnd (yet)")
+
+
 if __name__ == "__main__":
-    if len(argv) > 1:
-        for password in argv[1:]:
-            times_in_db = check_password(password)
-            if times_in_db > 0:
-                print(f"You are pwnd, password {password} found {times_in_db} times in database")
-            else:
-                print(f"Lucky! password {password} not pwnd (yet)")
+    main(argv[1:])
