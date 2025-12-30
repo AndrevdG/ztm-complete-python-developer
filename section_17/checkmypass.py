@@ -41,6 +41,7 @@ def main(args):
             )
         else:
             print(f"Lucky! password {password} not pwnd (yet)")
+    return 'done!'
 
 
 if __name__ == "__main__":
