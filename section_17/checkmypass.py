@@ -1,6 +1,6 @@
 import requests
 import hashlib
-from sys import argv
+import sys
 
 # Reworked to use list comprehension...
 #
@@ -45,4 +45,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main(argv[1:])
+    sys.exit(main(sys.argv[1:]))
